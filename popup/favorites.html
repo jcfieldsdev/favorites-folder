@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"><head><title>Favorites Folder</title>
+<meta charset="utf-8">
+<link href="mailto:jcfields@jcfields.dev" rel="author" title="J.C. Fields">
+<link href="style.css" media="screen" rel="stylesheet" type="text/css">
+<link href="../icons/icon-neutral.svg" rel="shortcut icon" type="image/svg+xml">
+<link href="../homeicon.svg" rel="apple-touch-icon-precomposed" type="image/svg+xml">
+<script src="favorites.js" type="text/javascript"></script></head>
+<body>
+	<ul id="tabs"></ul>
+	<div id="favorites"></div>
+	<div id="emptyFolder" class="message">This folder contains no items.</div>
+	<template id="tab">
+		<li><button value="0" class="tab site"></button></li>
+	</template>
+	<template id="all">
+		<li><button value="-1" class="tab all">All</button></li>
+	</template>
+	<template id="parent">
+		<li><button value="-2" class="tab parent">Parent</button></li>
+	</template>
+	<template id="favorite">
+		<div class="head">
+			<a href="" class="name"></a>
+			<select class="length visits">
+				<option value="0">Show 0 most visited</option>
+				<option value="1">Show 1 most visited</option>
+				<option value="5">Show 5 most visited</option>
+				<option value="10">Show 10 most visited</option>
+				<option value="20">Show 20 most visited</option>
+			</select>
+			<select class="length recent">
+				<option value="0">Show 0 recently visited</option>
+				<option value="1">Show 1 recently visited</option>
+				<option value="5">Show 5 recently visited</option>
+				<option value="10">Show 10 recently visited</option>
+				<option value="20">Show 20 recently visited</option>
+			</select>
+		</div>
+		<div class="lists">
+			<ul class="links pinned"></ul>
+			<ul class="links visits"></ul>
+			<ul class="links recent"></ul>
+		</div>
+	</template>
+	<template id="item">
+		<li><a href=""><span class="title"></span> <span class="url"></span></a> <button type="button" class="pin"><span>Pin</span></button></li>
+	</template>
+</body></html>

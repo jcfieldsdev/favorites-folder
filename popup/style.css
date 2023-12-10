@@ -1,0 +1,402 @@
+:root {
+	--light-fg: #000;
+	--light-dark-fg: #c0c0c0;
+	--light-bg: #efeff2;
+	--light-medium: #f9f9fb;
+	--light-light: #fff;
+	--light-link: #26d862;
+	--light-link-dim: #4afb85;
+	--light-link-hover: #1fb451;
+	--light-line: #e0e0e0;
+	--light-text-shadow: #e0e0e0;
+	--light-all-img: url(../icons/all-dark.svg);
+	--light-all-hover-img: url(../icons/all-dark-hover.svg);
+	--light-folder-img: url(../icons/folder-dark.svg);
+	--light-folder-hover-img: url(../icons/folder-dark-hover.svg);
+	--light-favicon-img: url(../icons/compass-dark.svg);
+	--light-favicon-hover-img: url(../icons/compass-dark-hover.svg);
+	--light-parent-img: url(../icons/parent-dark.svg);
+	--light-parent-hover-img: url(../icons/parent-dark-hover.svg);
+	--light-visits-img: url(../icons/bars-dark.svg);
+	--light-recent-img: url(../icons/clock-dark.svg);
+	--light-pin-img: url(../icons/pin-dark.svg);
+	--light-unpin-img: url(../icons/unpin-dark.svg);
+	--dark-fg: #fff;
+	--dark-dark-fg: #404040;
+	--dark-bg: #1c1b21;
+	--dark-medium: #23222a;
+	--dark-light: #42414c;
+	--dark-link: #64fbda;
+	--dark-link-dim: #034a39;
+	--dark-link-hover: #9afce9;
+	--dark-line: #0c0c0d;
+	--dark-text-shadow: #000;
+	--dark-all-img: url(../icons/all-light.svg);
+	--dark-all-hover-img: url(../icons/all-light-hover.svg);
+	--dark-folder-img: url(../icons/folder-light.svg);
+	--dark-folder-hover-img: url(../icons/folder-light-hover.svg);
+	--dark-favicon-img: url(../icons/compass-light.svg);
+	--dark-favicon-hover-img: url(../icons/compass-light-hover.svg);
+	--dark-parent-img: url(../icons/parent-light.svg);
+	--dark-parent-hover-img: url(../icons/parent-light-hover.svg);
+	--dark-visits-img: url(../icons/bars-light.svg);
+	--dark-recent-img: url(../icons/clock-light.svg);
+	--dark-pin-img: url(../icons/pin-light.svg);
+	--dark-unpin-img: url(../icons/unpin-light.svg);
+}
+
+* {
+	user-select: none;
+}
+
+a {
+	background: none;
+	color: var(--light-link);
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	background: none;
+	color: var(--light-link-hover);
+}
+
+a:hover span.title, a:active span.title {
+	text-decoration: underline;
+}
+
+a.name {
+	background: var(--light-medium);
+	border-radius: 1em;
+	box-shadow: 0 1px 4px var(--light-line);
+	color: var(--light-fg);
+	display: block;
+	flex-grow: 1;
+	font-size: 1.25rem;
+	margin: 0.5em 0;
+	overflow: hidden;
+	padding: 1em;
+	text-overflow: ellipsis;
+	text-shadow:  1px 1px var(--light-text-shadow);
+	white-space: nowrap;
+}
+
+a.name:hover, a.name:active {
+	text-decoration: underline;
+}
+
+body {
+	margin: 1em;
+	padding: 0;
+	width: 600px;
+}
+
+body, html {
+	font-size: 10pt;
+}
+
+button.pin {
+	background-color: transparent;
+	background-image: var(--light-pin-img);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background-size: 1.5em 1.5em;
+	border: 1px outset transparent;
+	color: inherit;
+	height: 1.5em;
+	padding: 0.75em;
+	margin-top: 0.75em;
+	width: 1.5em;
+}
+
+button.pin:hover, button.pin:focus {
+	border-color: var(--light-medium);
+}
+
+button.pin span {
+	display: none;
+}
+
+button.pin.selected {
+	background-image: var(--light-unpin-img);
+}
+
+button.tab {
+	background-color: transparent;
+	background-position: 0.5em 50%;
+	background-repeat: no-repeat;
+	border: 1px solid var(--light-link-dim);
+	border-radius: 0.5em;
+	color: var(--light-link);
+	font: inherit;
+	max-width: 10em;
+	overflow: hidden;
+	padding: 0 0.5em;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+button.tab:hover, button.tab:focus {
+	border-color: var(--light-link-hover);
+}
+
+button.tab.all {
+	background-image: var(--light-all-img);
+}
+
+button.tab.all, button.tab.folder, button.tab.parent {
+	background-size: 1em 1em;
+	padding-left: 2em;
+}
+
+button.tab.all.selected {
+	background-image: var(--light-all-hover-img);
+}
+
+button.tab.folder {
+	background-image: var(--light-folder-img);
+}
+
+button.tab.folder.selected {
+	background-image: var(--light-folder-hover-img);
+}
+
+button.tab.parent {
+	background-image: var(--light-parent-img);
+}
+
+button.tab.parent.seleced {
+	background-image: var(--light-parent-hover-img);
+}
+
+button.tab.selected {
+	background-color: var(--light-link-hover);
+	border-color: var(--light-link);
+	color: var(--light-bg);
+}
+
+button.tab.site {
+	background-size: 16px 16px;
+	padding-left: calc(16px + 1em);
+}
+
+div#favorites {
+	border-top: 2px solid var(--light-line);
+	display: flex;
+	flex-direction: column;
+	padding-top: 1em;
+}
+
+div#favorites.all select, div#favorites.all ul.links {
+	display: none;
+}
+
+div.favorite {
+	flex-shrink: 0;
+}
+
+div.head {
+	align-items: center;
+	display: flex;
+	gap: 1em;
+}
+
+div.message {
+	font-style: italic;
+	text-align: center;
+}
+
+html {
+	background: var(--light-bg);
+	color: var(--light-fg);
+	font-family: Helvetica, Arial, sans-serif;
+	line-height: 200%;
+	overflow-y: scroll;
+	padding: 0;
+}
+
+option {
+	background: var(--light-bg);
+	color: var(--light-fg);
+}
+
+select.length {
+	appearance: none;
+	background-color: var(--light-bg);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	border: 0;
+	color: transparent;
+	height: 2.25em;
+	width: 2.25em;
+}
+
+select.length.recent {
+	background-image: var(--light-recent-img);
+}
+
+select.length.visits {
+	background-image: var(--light-visits-img);
+}
+
+span.title {
+	margin-right: 1em;
+}
+
+span.url {
+	background: none;
+	color: var(--light-dark-fg);
+	font-style: italic;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul#tabs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5em;
+	justify-content: center;
+	margin: 0 auto 1em;
+	padding-bottom: 1em;
+	width: 90%;
+}
+
+ul.links a {
+	border-radius: 1em;
+	box-shadow: 0 1px 4px var(--light-line);
+	display: block;
+	flex-grow: 1;
+	margin: 0 0 0.5em 2em;
+	overflow: hidden;
+	padding: 0.5em 1em;
+}
+
+ul.links.pinned a {
+	background: var(--light-medium);
+}
+
+ul.links.visits a {
+	background: var(--light-line);
+}
+
+ul.links li {
+	display: flex;
+	gap: 0.5em;
+}
+
+@media (prefers-color-scheme: dark) {
+	a {
+		background: none;
+		color: var(--dark-link);
+	}
+
+	a:hover, a:active {
+		background: none;
+		color: var(--dark-link-hover);
+	}
+
+	a.name {
+		background: var(--dark-medium);
+		box-shadow: 0 1px 4px var(--dark-line);
+		color: var(--dark-fg);
+		text-shadow:  1px 1px var(--dark-text-shadow);
+	}
+
+	button.pin {
+		background-image: var(--dark-pin-img);
+	}
+
+	button.pin:hover {
+		border-color: var(--dark-light);
+	}
+
+	button.pin.selected {
+		background-image: var(--dark-unpin-img);
+	}
+
+	button.tab {
+		border-color: var(--dark-link-dim);
+		color: var(--dark-link);
+	}
+
+	button.tab:hover, button.tab:focus, button.tab.selected {
+		border-color: var(--dark-link-hover);
+	}
+
+	button.tab.all {
+		background-image: var(--dark-all-img);
+	}
+
+	button.tab.all.selected {
+		background-image: var(--dark-all-hover-img);
+	}
+
+	button.tab.folder {
+		background-image: var(--dark-folder-img);
+	}
+
+	button.tab.folder.selected {
+		background-image: var(--dark-folder-hover-img);
+	}
+
+	button.tab.parent {
+		background-image: var(--dark-parent-img);
+	}
+
+	button.tab.parent.selected {
+		background-image: var(--dark-parent-hover-img);
+	}
+
+	button.tab.selected {
+		background-color: var(--dark-link);
+		color: var(--dark-bg);
+	}
+
+	div#favorites {
+		border-top-color: var(--dark-line);
+	}
+
+	html {
+		background: var(--dark-bg);
+		color: var(--dark-fg);
+	}
+
+	option {
+		background: var(--dark-bg);
+		color: var(--dark-fg);
+	}
+
+	select.length {
+		background-color: var(--dark-bg);
+		color: transparent;
+	}
+
+	select.length.recent {
+		background-image: var(--dark-recent-img);
+	}
+
+	select.length.visits {
+		background-image: var(--dark-visits-img);
+	}
+
+	span.url {
+		background: none;
+		color: var(--dark-dark-fg);
+		font-style: italic;
+	}
+
+	ul.links a {
+		box-shadow: 0 1px 4px var(--dark-line);
+	}
+
+	ul.links.pinned a {
+		background: var(--dark-line);
+	}
+
+	ul.links.visits a {
+		background: var(--dark-medium);
+	}
+}
